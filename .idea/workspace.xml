@@ -21,6 +21,7 @@
   <component name="ProjectId" id="1VMhs4XY5pGf5V13zHc5liHX1Hu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab-python" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -41,8 +42,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ex06">
-    <configuration name="ex02 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ex12">
+    <configuration name="ex08" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -54,7 +55,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex02.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex08.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -63,7 +64,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex03" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex09" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,7 +76,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex03.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex09.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +85,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex04" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex10" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -96,7 +97,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex04.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex10.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex05" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex11" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +118,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex05.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex11.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +127,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex06" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex12" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -138,7 +139,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex06.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch03/ex12.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ex06" />
-        <item itemvalue="Python.ex05" />
-        <item itemvalue="Python.ex04" />
-        <item itemvalue="Python.ex03" />
-        <item itemvalue="Python.ex02 (1)" />
+        <item itemvalue="Python.ex12" />
+        <item itemvalue="Python.ex08" />
+        <item itemvalue="Python.ex11" />
+        <item itemvalue="Python.ex10" />
+        <item itemvalue="Python.ex09" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +176,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

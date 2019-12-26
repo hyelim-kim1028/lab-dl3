@@ -76,7 +76,11 @@ def softmax(x):
         # 그렇기 때문에 s
     """
     # return np.exp(x)/np.sum(np.exp(x))
-    max_x = np.max(x) #배열의 x원소들 중 최대값을 찾음
+    max_x = np.max(x) #배열의 x원소들 중 최대값을 찾음 (a scala)
+                      # array: x = [1, 2, 3], scala: m = 3 일 때,
+                      # x - m: [1, 2, 3] - 3 = [1, 2, 3] - [3, 3, 3] 처럼 계산해 준다
+                      # broadcasting
+                      # exp(x) = [e^1, e^2, e^3]
     y = np.exp(x - max_x) / np.sum(np.exp(x - max_x))
     return y
     # why the maximum number?

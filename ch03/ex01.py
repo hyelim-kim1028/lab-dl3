@@ -4,8 +4,8 @@ perceptron
  - 출력: y = x1 * w1 + x2 * w2 + b    # w: 가중치/ weight, b: bias
          1. a = x1 * w1 + x2 * w2 + b  계산
          2. y = 1 (a > 임계값)  or 0 (a <= 임계값)   #임계값 = threshold
-                # the condititions for a may differ from one situation to the other
-                # the function decides on the condition is 활성화 함수
+                # the condititions may differ from one situation to the other
+                # the function decided on the condition is 활성화 함수
 # 신경망의 뉴런(neuron)에서는 입력 신호의 가충치 합을 출력값으로 변환해주는 함수가 존재
  -> 활성화 함수 (activation function)
 """
