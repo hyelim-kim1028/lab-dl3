@@ -58,7 +58,7 @@ def predict(network, X_test):
     for sample in X_test: # 테스트 세트의 각 이미지들에 대해서 반복
         # 이미지를 신경망에 전파(통과) 시켜서 어떤 숫자인지 확률을 계산
         sample_hat = forward(network, sample)
-        print('sample_hat', sample_hat)
+        # print('sample_hat', sample_hat)
         # 가장 큰 확률의 인덱스를 찾음 (우리가 원하는 것은 어떤 숫자인지 맞추는 것 => final output printed result의 중요도: 인덱스 >>>> 확률)
         # 최댓값의 인덱스를 넘겨주는 함수: argmax
         sample_pred = np.argmax(sample_hat) # 1차원 이상일 때: axis를 주어야한다. 하지만, 1차원 배열에서는 안줘도 됨 : there is no axis to be given
