@@ -36,11 +36,9 @@ def f2(x):
 
 # 편미분을 어떻게 하지 -> 상수취급,,,?
 
-def f3(x):
-    return x[0] + x[1]**2 + x[2]**3
 
 
-def numerical_gradient(fn, x):
+def _numerical_gradient(fn, x):
     """ fn: 독립 변수를 여러개 갖는 함수
         fn = fn(x0, x1, ... xn)
         x: n-dimensional array
@@ -48,8 +46,13 @@ def numerical_gradient(fn, x):
         위와 같이 가정을 했을 때,
         점 x = [x0, x1, ... xn] 에서의 함수 fn = fn(x0, x1, ... xn)의
         각 편미분 (partial differential)들의 배열을 리턴
+        # 2 차원 배열을 가진 배열?은 not considered -> resulted in repeated errors in ex06
         """
-    x = x.astype(np.float) #실수타입
+    x = x.astype(np.float, copy = False) #실수타입 -> 나중에 ex08에서 문제의 주범이 된다 -> 복사가 일어나 버렸다 -> 그래서 copy = False 파라미터를 준다
+    # 가중치 행렬에서의 행 1개만 출력된다 => 이 코드에서는 복사본을 가지고 계산을 한다
+    # 우리는 가중치 행렬을 넘기려고 한다 (+- h를 해서 예측값을 계산한다)
+    # 미분의 개념 f(x+h) - f(x-h) / 2h  -> 가중치 행렬에다 미분의 개념을 apply
+
     gradient = np.zeros_like(x) #np.zeros(shape = x.shape) 와 같은 것
             # 원소 2개짜리 array를 만들어서
     # 독립 변수 갯수 만큼 0으로 채워둔 배열
@@ -59,14 +62,27 @@ def numerical_gradient(fn, x):
     for i in range(x.size):
         ith_value = x[i]
         x[i] = ith_value + h
-        fh1 = fn(x)
+        fh1 = fn(x) # 여기서는 계산이 되지만
         x[i] = ith_value - h
-        fh2 = fn(x)
-        gradient[i] = (fh1 - fh2) /2*h
+        fh2 = fn(x) # 위에서 변화가 되지 않아서 같은 값이 나온다 # 그래서 gradient descent가 0 이 나오는 것 (같은 값 끼리의 계산이니까)
+        gradient[i] = (fh1 - fh2) /(2*h)
         x[i] = ith_value # i번쨰 있던 원소를 다시 되돌려주는 작업이 필요하다 -> 다른 값이 상수로 취급되는 편미분의 특성 때문에
     return gradient
 
-
+def numerical_gradient(fn, x):
+    """ x가 2차원이 될 수 있다 라고 가정 (1차원, 2차원 모두 고려)
+        x = [[x11, x12, x13],
+             [x21, x22, x23],
+              ...]
+        """
+    if x.ndim == 1:
+        return _numerical_gradient(fn,x)
+    else: #when x is a 2-dimensional array
+        gradients = np.zeros_like(x)
+        for i, x_i in enumerate(x): # enumerate: array에서 복사본을 갖다가 붙여준다 (프린트를 할 때는 문제가 없지만, 실질적으로 계산을 할 때에는 배열이 변하지 않아서 문제가 생긴다?)
+            print('x_i', x_i)
+            gradients[i] = _numerical_gradient(fn, x_i) # gradient들을 다 넘기면, 갯수만큼 array가 나오고, gradient가 2차원이 된다
+        return gradients
 
 
 if __name__ == '__main__':
@@ -101,6 +117,8 @@ if __name__ == '__main__':
 
     # f3 = x0 + x1**2 + x2**3
     # 점 (1, 1, 1)에서의 각 편미분들의 값
+    def f3(x):
+        return x[0] + x[1] ** 2 + x[2] ** 3
     # df/dx0 = 1, df/dx1 = 2, df/dx2 = 3이 나와야한다
     gradient = numerical_gradient(f3, np.array([1,1,1]))
     print(gradient)

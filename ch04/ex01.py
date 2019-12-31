@@ -28,9 +28,13 @@ Machine Learning (기계학습)
 # 손실 함수 :
     - 평균 제곱 오차 (MSE: Mean Squared Error)
     - 교차 엔트로피 (cross-entropy)
-    -
-"""
+
 # 오차제곱합: 책과는 다를 수도 있다/ 선생님의 견해: 책에서는 평균은 내지 않고 오차 제곱 합 까지만 계산
+
+# Mean Squared Error (MSE): Usually used for regression problems. -> 오차가 가장 적은 라인을 찾는,,,
+# Process in general: MSE를 gradient descent 로 계속 줄여나가며 W와 b를 찾는 것
+"""
+
 from dataset.mnist import load_mnist
 import numpy as np
 import math

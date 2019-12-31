@@ -36,9 +36,8 @@ def cross_entropy(y_pred, y_true): # 위의 코드는 사용되지 않는다
 # cross entropy를 어떻게 줄일 것인가? 가 main objective!
 # 함수들의 미분을 계산해서 gradient descent (경사하강법) 적용
 
-
-
-
+# 교차엔트로피에 대한 gradient descent를 계산해서 반대 부호로 변환. W의 가중치를 변환시킨 다음에 예측값을 계산하는 과정을 반복.
+    # 교차 엔트로피 함수를 만든 이유: W를 조정하고, 신경망을 통과시키는 과정에 필요
 
 if __name__ == '__main__':
     (T_train, y_train), (T_test, y_test) = load_mnist(one_hot_label = True)
@@ -53,15 +52,15 @@ if __name__ == '__main__':
     print('y_pred[0] =', y_pred[0]) # 7 이미지가 될 확률이 가장 큼
     # 실질적으로 0*log(expected_value)이기 때문에, 1의 값밖에 남는게 없다
     # y_pred을 구해서 더해주는 (summation/sigma)
-    print('ce =', cross_entropy(y_pred[0], y_true[0])) # 값이 너무 다르게 나왔다 # 0.0029
+    print('ce =', cross_entropy(y_pred[0], y_true[0])) # 0.0029
 
     # 실제값과 예측값이 다른 경우
     print('y_true[8] =', y_true[8]) # 숫자 5이미지
     print('y_pred[8] =', y_pred[8]) # 6이될 확률이 가장 큼
-    print('ce =', cross_entropy(y_pred[8], y_true[8])) # 4.9094
+    print('ce =', cross_entropy(y_pred[8], y_true[8])) #0.00293918838724494
+    print('ce 평균 =', cross_entropy(y_pred, y_true)) #0.5206955424044282
 
-    print('ce 평균 =', cross_entropy(y_pred, y_true)) #0.5206
-
+    # ce가 적으면 true value & pred value가 같은 확률이 높다, ce가 높으면 그럴 확률이 적다
 
     # 만약 y_true 또는 y_pred가 one_hot_encoding이 사용되어 있지 않으면,
     # one_hot_encoding 형태롤 변환해서 Cross-Entropy를 계산
@@ -79,29 +78,14 @@ if __name__ == '__main__':
 
     # 여기서 부터 이어서 시작
     y_true_2 = np.zeros((y_true.size,10)) #row의 갯수, 컬럼의 갯수 (0~9까지의 숫자) -> 분류해야하는 X의 갯수
-    for i in range(y_true.size):
+                                          # 10개의 0으로 채운 리스트들을 생성하고
+    for i in range(y_true.size): # y_true의 인덱스에 1을 각인해줌
         y_true_2[i][y_true[i]] = 1
     print(y_true_2) #y_true의 값들을 기준으로 one_hot_encoding 시켜줌
 
 
 
-    # size에 대한 설명/활용
-    # [[1,2,3], [4,5,6]] #ndim = 2, shape = (2,3), size = 6 # size = 전체 원소의 갯수
-    # [1,2,3] #ndim = 1, shape(3,), size =3
 
-    a = np.array([1,2,3])
-    print('dim:', a.ndim)
-    print('shape:', a.shape)
-    print('size:', a.size)
-    print('len:', len(a))
-
-    print('===============')
-
-    b = np.array([[1,2,3], [4,5,6]])
-    print('dim:', b.ndim)
-    print('shape:', b.shape)
-    print('size:', b.size) #6 # shape[0] * shape[1]
-    print('len:', len(b))
 
 
 
