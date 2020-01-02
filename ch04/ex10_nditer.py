@@ -81,9 +81,10 @@ print('after readwrite =',a)
 # op_flag = operation flag (operation pertains to write, read, etc)
 
 # iterator 는 1차원이든 2차원이든 같은 방식을 사용한다
-
-
-
+# input layer -> 784 = number of pixels in one image => mini_batch_size = 100 means treating/processing 100 images at once
+# 확률 P값을 높이는 (손실을 줄이는) -> 손실 함률 (Cross-Entropy를 높이는 W와 B를 찾는다)
+# 나중에 공부할 때: draw the chart (be careful with array/column/row)
+# ultimately only one element in the output layer will be close to 1 and the others converge to 0 (reason why the formation of elements in one-hot-label is important)
 
 
 
