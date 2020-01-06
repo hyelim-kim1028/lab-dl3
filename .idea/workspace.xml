@@ -42,8 +42,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ex08_softmax_loss">
-    <configuration name="ex04" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ex11_1">
+    <configuration name="ex07_affine" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -51,11 +51,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch05" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex04.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/ex07_affine.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -64,7 +64,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex05_ReLU" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex09" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,7 +76,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex05_ReLU.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex09.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,7 +85,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex06" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex10_two_layer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +97,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex06.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex10_two_layer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex07" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex11" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -118,7 +118,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex07.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex11.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -127,7 +127,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex08_softmax_loss" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex11_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +139,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex08_softmax_loss.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch05/ex11_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ex08_softmax_loss" />
-        <item itemvalue="Python.ex07" />
-        <item itemvalue="Python.ex06" />
-        <item itemvalue="Python.ex05_ReLU" />
-        <item itemvalue="Python.ex04" />
+        <item itemvalue="Python.ex11_1" />
+        <item itemvalue="Python.ex11" />
+        <item itemvalue="Python.ex10_two_layer" />
+        <item itemvalue="Python.ex09" />
+        <item itemvalue="Python.ex07_affine" />
       </list>
     </recent_temporary>
   </component>

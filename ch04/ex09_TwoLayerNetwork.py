@@ -113,7 +113,7 @@ class TwoLayerNetwork:
     # 변화율을 찾는 목적은 => W값의 변환
     # entropy를 최소화 시켜나가는 것이 우리가 할 일
         loss_fn = lambda w: self.loss(x, y_true) # 이 함수를 최소화 시켜나가는 것
-        gradients = dict() #W1, b1, W2, b2의 gradient를 저장할 딕셔너리
+        gradients = dict() #W1, b1, W2, b2와 같은 가중치/평향 행렬에 대한 gradient를 저장할 딕셔너리
         gradients['W1'] = self.numerical_gradient(loss_fn, self.params['W1'])
         gradients['b1'] = self.numerical_gradient(loss_fn, self.params['b1'])
         gradients['W2'] = self.numerical_gradient(loss_fn, self.params['W2'])

@@ -20,15 +20,15 @@ class Relu:
         self.mask = None
 
     def forward(self, x):
-        self.mask = (x <= 0) # x가 0보다 작으면 True, 크면 False (음수면 0, 양수며 1)
+        self.mask = (x <= 0) # x가 0보다 작으면 True, 크면 False (음수면 0, 양수면 1)
+                # x가 0보다 작은 아이들을 저장 => 후에 backward에서 사용
         return np.maximum(0,x)
 
     def backward(self, dout):
-        print('making 전:', dout)
+        # print('making 전:', dout)
         dout[self.mask] = 0  # 델타값이 들어오면 # 원래 x에서 마이너스였으면 0, 나머지는 그대로
-                    # 젆 이렇게 보이징 낳아!!!
-        print('masking 후:', dout)
-        dx = dout
+        # print('masking 후:', dout)
+        dx = dout # 들어온 값을 그대로 내보낸다
         return dx
 
 

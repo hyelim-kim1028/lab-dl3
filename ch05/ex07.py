@@ -1,6 +1,8 @@
 import numpy as np
 
 class Affine:
+    # 입력값들이 합쳐지는 부분에서 행렬의 연산으로 사용  # y = X@W + b
+    # X는 1차원일 수도 있고, 미니배치인 경우에는 2차원이 될 수도 있다
     def __init__(self, W, b):
         # class를 초기화 시켜주는 def
         self.W = W #가중치/weight 행렬
@@ -23,8 +25,9 @@ class Affine:
         # b 행렬 방향으로 gradient
         self.db = np.sum(dout, axis = 0)
         # z행렬 방향으로의 gradient -> W 방향과 X방향으로의 gradient
-        self.dW = X.T.dot(dout) #self. 이 들어가면 -> 저장하고 있을꺼임 *-*!! 이라는 뜻
-        dX = dout.dot(W.T) #W를 계속 변화 시키려고 하는 것 -> W와 b의 변화율을 사용해서 하니까 => dw와 dx의 값을 저장하고 있어야한다
+        self.dW = self.X.T.dot(dout)
+        #self. 이 들어가면 -> 저장하고 있을꺼임 *-*!! 이라는 뜻
+        dX = dout.dot(self.W.T) #W를 계속 변화 시키려고 하는 것 -> W와 b의 변화율을 사용해서 하니까 => dw와 dx의 값을 저장하고 있어야한다
                                 # GD를 사용해서 W, b를 fitting 시킬 때 사용하기 위해서
         return dX
 
