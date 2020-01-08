@@ -44,16 +44,6 @@ class Sgd:
                # W = W - lr * dL/dW
             params[key] -= self.learning_rate * gradients[key]
 
-
-class momentum():
-    """
-    Momentum: 속도에다 어떤 값을 곱한 것?
-    # 학습률을 낮추더라도, 속도라는 개념을 도입하면 더 빨리 최소값을 찾아 갈 수 있지 않을까?
-    # 원과 원사이가 더 넒은 곳이 원만한 기울기를 갖고, 원과 원 사이가 더 좁은 곳이 더 steep 한 것
-    """
-    pass
-
-
 if __name__ == '__main__':
     # sgd 클래스의 객체(인스턴스)
     sgd = Sgd(learning_rate=0.95) # init 메소드가 호출되고, default arg를 가지기 때문에 값이 있는 경우임 -> 그러기 때문에 업데이트가 실행될수도 있다

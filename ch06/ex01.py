@@ -15,7 +15,7 @@ def fn(x,y):
 def fn_derivative(x, y):
     return x/10, 2 * y # x에 대한 기울기, y에 대한 기울기를 리턴해주는 함수
     # """ 편미분 df/dx, df/dy 튜플을 리턴 """
-    # return 2*x, 2 * y # x에 대한 기울기, y에 대한 기울기를 리턴해주는 함수
+    # return 2 *x, 2 * y # x에 대한 기울기, y에 대한 기울기를 리턴해주는 함수
 
 if __name__ == '__main__':
     # x좌표들 만들기

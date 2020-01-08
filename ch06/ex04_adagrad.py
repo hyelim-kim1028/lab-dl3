@@ -67,7 +67,8 @@ if __name__ == '__main__':
     plt.plot(x_history, y_history, 'o-', color = 'red')
     plt.show()
 
-
+# 단점: 반복을 할 때마다 gradient에 제곱을 계속해서 더해준다 -> 반복을 해줄 때마다 denominator/분모의 h가 커진다 -> 점점더 converges to 0
+#     : 이 전 가중치행렬을 그대로 가져가는 꼴이 되어버린다
 
 
 

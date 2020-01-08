@@ -96,7 +96,12 @@ if __name__ == '__main__':
             gradients = neural_net.gradient(X_batch, Y_batch)
             # 가중치/편향 행렬들을 수정
             for key in neural_net.params:
+                # W = W - lr * dL/dW
+                # b = b - lr * dL/db
                 neural_net.params[key] -= learning_rate * gradients[key]
+                # SGD의 업데이트 메소드와 똑같이 생겼다
+                # 이 부분을 ch06에 있는 알고리즘들의 업데이트 메소드로 replace/edit 할 수 있다
+                # 각 알고리즘 별로 손실을 계산할 수 있다 -> 그렇게 알고리즘별 손실들을 비교할 수 있다 
             # 위의 코드들 -> W/b가 600번 바뀜
 
         # loss를 계산해서 출력

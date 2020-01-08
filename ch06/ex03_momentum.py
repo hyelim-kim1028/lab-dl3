@@ -1,5 +1,11 @@
 """
 파라미터 최적화 알고리즘
+
+Momentum: 속도에다 어떤 값을 곱한 것?
+    # 학습률을 낮추더라도, 속도라는 개념을 도입하면 더 빨리 최소값을 찾아 갈 수 있지 않을까?
+    # 원과 원사이가 더 넒은 곳이 원만한 기울기를 갖고, 원과 원 사이가 더 좁은 곳이 더 steep 한 것
+
+
 1) 경사하강법 (sgd)
 2) Momentum 알고리즘 (P = m * v)
 v: 속도 (velocity)
@@ -45,7 +51,7 @@ class Momentum:
 
 if __name__ == '__main__':
     # Momentum 클래스의 인스턴스를 생성
-    momentum = Momentum(lr = 0.1, m = 0.05)
+    momentum = Momentum(lr = 0.05)
     # update 메소드 테스트
     # momentum.update(params, gradients)
     # 값을 어떻게 주지,,

@@ -9,6 +9,8 @@ tax = 1.1
 
 
 # 뉴런 생성 및 forward propagation
+
+# get the total price of apple and orange
 apple_mul = MultiplyLayer() # 뉴런 생성
 apple_price = apple_mul.forward(apple, n_a) #forward propagation
 print('apple_price =', apple_price)
@@ -17,10 +19,12 @@ orange_mul = MultiplyLayer()
 orange_price = orange_mul.forward(orange, n_o) #forward propagation
 print('orange_price =', orange_price)
 
+# Add the prices of apple and orange
 add_gate = AddLayer()
 price = add_gate.forward(apple_price, orange_price)
 print('price =', price)
 
+# get the total price with tax
 tax_multiplier = MultiplyLayer()
 total_price = tax_multiplier.forward(price, tax)
 print('total_price', total_price)

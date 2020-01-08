@@ -44,7 +44,7 @@ if __name__ == '__main__':
     f = mul_gate.forward(q, z)
     print('f =',f)
 
-    # backward propagation for (x + y) * z
+    # back propagation for (x + y) * z
     delta = 1
     dq, dz = mul_gate.backward(delta)
     print(f'dq = {dq}, dz = {dz}')

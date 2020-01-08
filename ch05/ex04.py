@@ -8,7 +8,6 @@
     # 시그모이드의 입력값은 1개
 """
 import numpy as np
-
 from ch03.ex01 import sigmoid
 
 
