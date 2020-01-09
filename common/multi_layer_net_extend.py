@@ -41,7 +41,7 @@ class MultiLayerNetExtend:
 
         # 계층 생성
         activation_layer = {'sigmoid': Sigmoid, 'relu': Relu}
-        self.layers = OrderedDict()
+        self.layers = OrderedDict() #순서가 유지되는 딕셔너리
         for idx in range(1, self.hidden_layer_num+1):
             self.layers['Affine' + str(idx)] = Affine(self.params['W' + str(idx)],
                                                       self.params['b' + str(idx)])

@@ -136,11 +136,14 @@ class BatchNormalization:
         self.input_shape = x.shape
         if x.ndim != 2:
             N, C, H, W = x.shape
+            # C: channel -> 흑백 -> binary/2 ; 컬러 -> 3 (RGB) + 투명도 -> 4
+            # H, W: Height * Width
             x = x.reshape(N, -1)
+            # 2차원으로의 flatten
 
         out = self.__forward(x, train_flg)
         
-        return out.reshape(*self.input_shape)
+        return out.reshape(*self.input_shape) # 원래대로 되돌려서 리턴
             
     def __forward(self, x, train_flg):
         if self.running_mean is None:
@@ -149,14 +152,14 @@ class BatchNormalization:
             self.running_var = np.zeros(D)
                         
         if train_flg:
-            mu = x.mean(axis=0)
-            xc = x - mu
+            mu = x.mean(axis=0) # 변수/컬럼별로
+            xc = x - mu # x -평균 -> 분자 계산
             var = np.mean(xc**2, axis=0)
-            std = np.sqrt(var + 10e-7)
+            std = np.sqrt(var + 10e-7) # 표준편차가 numpy에 있는데 저자는 굳이 자기가 만들어서 사용하고 있다 ^^; # epsilon을 더해주기 위해서 -> 분모가 0이 될수도 있으니까
             xn = xc / std
             
             self.batch_size = x.shape[0]
-            self.xc = xc
+            self.xc = xc # 나중에 back propagation에서 사용되기 위해서 저장
             self.xn = xn
             self.std = std
             self.running_mean = self.momentum * self.running_mean + (1-self.momentum) * mu
@@ -169,29 +172,33 @@ class BatchNormalization:
         return out
 
     def backward(self, dout):
-        if dout.ndim != 2:
+        if dout.ndim != 2: # 2차원이 아니라면!
             N, C, H, W = dout.shape
             dout = dout.reshape(N, -1)
 
-        dx = self.__backward(dout)
+        dx = self.__backward(dout) # 미분 계산
 
         dx = dx.reshape(*self.input_shape)
         return dx
 
-    def __backward(self, dout):
+    def __backward(self, dout): # field에 저장하고 있던 아이들을 사용해서 계산해준다
         dbeta = dout.sum(axis=0)
         dgamma = np.sum(self.xn * dout, axis=0)
         dxn = self.gamma * dout
         dxc = dxn / self.std
         dstd = -np.sum((dxn * self.xc) / (self.std * self.std), axis=0)
+                # xc: X - 평균 (분자부분)
         dvar = 0.5 * dstd / self.std
         dxc += (2.0 / self.batch_size) * self.xc * dvar
         dmu = np.sum(dxc, axis=0)
         dx = dxc - dmu / self.batch_size
-        
+        # 실제로 계산 그래프를 그려보고, 미분을 계산해봐야 모두 comprehensively understand 할 수 있다
+        # 더하기 곱하기 나누기로 이루어져 있음
+
         self.dgamma = dgamma
         self.dbeta = dbeta
-        
+        # 궁극적으로 알고 싶은 것: 감마와 베타가 어떻게 변화하는가
+
         return dx
 
 

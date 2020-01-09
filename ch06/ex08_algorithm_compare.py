@@ -101,7 +101,7 @@ if __name__ == '__main__':
     plt.xlabel('Number of Training')
     plt.ylabel('Loss')
     plt.legend()
-    plt.show()
+    plt.show(   )
 
 
 

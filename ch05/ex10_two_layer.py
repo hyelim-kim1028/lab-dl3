@@ -29,7 +29,7 @@ class TwolayerNetwork:
         self.params['b2'] = np.zeros(output_size)
 
         # n in randomn stands for normalization (정규분포)
-        # 정규분포 is a bell-like graph which is symmetric (평균을 기준으로 좌우가 대칭)
+        # 정규분포 is a bell-like graph which is symmetric (평균을 기준으로 좌우가 대칭)  # 평균 0, 표준편차 1
         # 정규분포를 확률 분포라고 생각하면, 임의의 값을 꺼낼 때 -0.5 와 0.5 사이의 값을 가장 많이 리턴해준다
         # random number로 해주어야해요 - 표준편차를 1로 시작하면 모든 값이 같아서 나중엔 학습의 효과가 없을 수도 있어요 (그래서 std = 0.01을 해주었다)
 
