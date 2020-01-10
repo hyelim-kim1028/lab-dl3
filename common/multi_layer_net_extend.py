@@ -6,6 +6,8 @@ from collections import OrderedDict
 from common.layers import *
 from common.gradient import numerical_gradient
 
+# 어떤 변수가 true나 false를 저장하고 있다는 이야기는 if-loop을 사용하겠다는 뜻일 확률이 높다
+
 class MultiLayerNetExtend:
     """완전 연결 다층 신경망(확장판)
     가중치 감소, 드롭아웃, 배치 정규화 구현
@@ -42,14 +44,15 @@ class MultiLayerNetExtend:
         # 계층 생성
         activation_layer = {'sigmoid': Sigmoid, 'relu': Relu}
         self.layers = OrderedDict() #순서가 유지되는 딕셔너리
-        for idx in range(1, self.hidden_layer_num+1):
+        for idx in range(1, self.hidden_layer_num+1): # for문으로 묶여있는 이유: hidden 레이어로 묶여 있으니까
+            # affine > batch > ReLU > drop-out 순으로 조립해준다 (under neural_net)
             self.layers['Affine' + str(idx)] = Affine(self.params['W' + str(idx)],
                                                       self.params['b' + str(idx)])
             if self.use_batchnorm:
                 self.params['gamma' + str(idx)] = np.ones(hidden_size_list[idx-1])
                 self.params['beta' + str(idx)] = np.zeros(hidden_size_list[idx-1])
                 self.layers['BatchNorm' + str(idx)] = BatchNormalization(self.params['gamma' + str(idx)], self.params['beta' + str(idx)])
-                
+
             self.layers['Activation_function' + str(idx)] = activation_layer[activation]()
             
             if self.use_dropout:
@@ -80,6 +83,7 @@ class MultiLayerNetExtend:
             self.params['b' + str(idx)] = np.zeros(all_size_list[idx])
 
     def predict(self, x, train_flg=False):
+        # 각 레이어의 forward를 불러줌 => forward가 쭉 끝까지 가면 예측값이 나온다
         for key, layer in self.layers.items():
             if "Dropout" in key or "BatchNorm" in key:
                 x = layer.forward(x, train_flg)

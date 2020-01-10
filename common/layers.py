@@ -91,6 +91,7 @@ class SoftmaxWithLoss:
         
         return dx
 
+# 비슷한 기능들만 모은 파일 -> 모듈 => set of modules classified in folders => 패키지
 
 class Dropout:
     """
@@ -101,14 +102,32 @@ class Dropout:
         self.mask = None
 
     def forward(self, x, train_flg=True):
+                    # train_flg: 학습중인가 아닌가를 나타내는 파라미터 # 학습단계인가 아닌가
+                    # 학습중이다: gradient를 구하는 중이다 => 메소드들에서 gradient를 구할 때에는 해당 파라미터가 참이였고, accuracy를 구하는 메소드에서는 해당 파라미터가 거짓이였다.
+                    # 학습중일 때에만 제거를 한다 -> 학습이 다 끝난 다음에 정확도나 그런것들을 계산할 때에는 모두 이어주는,,,
+
         if train_flg:
             self.mask = np.random.rand(*x.shape) > self.dropout_ratio
+                        # (100, 784) = 100 * 784
+                        # not randn (0 중심에 있는 것들이 많이 뽑힌다) but rand = 균등분포
+                        # 균등분포 -> 0부터 1사이의 숫자들이 균일하게 뽑힌다
+
+                        # dropout_ratio -> 숫자가 크면 클수록 self.mask 에서 50%에 가까운 값들이 뽑힌다...?
+                        # i.e. 0.5 라면 (1 - 0.5)의 값들이 뽑힌다,,,
+
             return x * self.mask
         else:
-            return x * (1.0 - self.dropout_ratio)
+            return x * (1.0 - self.dropout_ratio) # 들어온것을 bypass 하는 것,,, 그냥 보내겠다 / 안내보내겠다 하면 dropout과 같은 효과를 주는 것 -
+                                                  # dropout_ratio = 0 이라면 아무것도 제거하지 않은 것 => x 그대로
+                                                  # dropout_ratio = 0.8 이라면 -> 원래 값의 0.2만 내보낸다
+                                                  # 곱할수도, 안 곱할수도 있다
 
     def backward(self, dout):
-        return dout * self.mask
+        return dout * self.mask # 활성화되어있으면 보내고, 아니면 보내지않겠다 (0을 보냄)
+
+    # drop out이라고 하는 클래스는 보내고, 안 보내고를 결정한다
+
+# 신경망을 조립할 때 사용하는 아이들은 모두 forward와 backward 메소드가 있어요
 
 
 class BatchNormalization:

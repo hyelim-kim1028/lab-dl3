@@ -47,17 +47,20 @@ class Trainer:
         loss = self.network.loss(x_batch, t_batch)
         self.train_loss_list.append(loss)
         if self.verbose: print("train loss:" + str(loss))
+        # verbose가 true이면 프린트, 아니면 안함
         
         if self.current_iter % self.iter_per_epoch == 0:
             self.current_epoch += 1
             
-            x_train_sample, t_train_sample = self.x_train, self.t_train
+            x_train_sample, t_train_sample = self.x_train, self.t_train # t = 정답
             x_test_sample, t_test_sample = self.x_test, self.t_test
-            if not self.evaluate_sample_num_per_epoch is None:
+            if not self.evaluate_sample_num_per_epoch is None: #if self.evaluate_sample_num_per_epoch is not None: 이 더 파이썬 권장 문법에 가깝다
                 t = self.evaluate_sample_num_per_epoch
+                 # 여기에다 숫자를 주면 훈련을 그 숫자 만큼만 시킨다 (i.e. 500 -> [:500])
                 x_train_sample, t_train_sample = self.x_train[:t], self.t_train[:t]
                 x_test_sample, t_test_sample = self.x_test[:t], self.t_test[:t]
-                
+
+
             train_acc = self.network.accuracy(x_train_sample, t_train_sample)
             test_acc = self.network.accuracy(x_test_sample, t_test_sample)
             self.train_acc_list.append(train_acc)
@@ -72,7 +75,7 @@ class Trainer:
 
         test_acc = self.network.accuracy(self.x_test, self.t_test)
 
-        if self.verbose:
-            print("=============== Final Test Accuracy ===============")
+        if self.verbose: # if verbose가 참이면 프린트하겠다, 거짓이면 프린트하지 않겠다
+            print("============== Final Test Accuracy ===============")
             print("test acc:" + str(test_acc))
 

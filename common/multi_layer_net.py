@@ -74,7 +74,7 @@ class MultiLayerNet:
 
     def loss(self, x, t):
         """손실 함수를 구한다.
-        
+            # 신경망 마지막에 예측값들을 구하고, 그것들을 사용해서 CE를 구하는 것이 손실,,,
         Parameters
         ----------
         x : 입력 데이터
@@ -92,6 +92,7 @@ class MultiLayerNet:
             weight_decay += 0.5 * self.weight_decay_lambda * np.sum(W ** 2)
 
         return self.last_layer.forward(y, t) + weight_decay
+                # last layer = softmaxwithloss()
 
     def accuracy(self, x, t):
         y = self.predict(x)
@@ -153,7 +154,8 @@ class MultiLayerNet:
         # 결과 저장
         grads = {}
         for idx in range(1, self.hidden_layer_num+2):
-            grads['W' + str(idx)] = self.layers['Affine' + str(idx)].dW + self.weight_decay_lambda * self.layers['Affine' + str(idx)].W
+            grads['W' + str(idx)] = self.layers['Affine' + str(idx)].dW + \
+                                    self.weight_decay_lambda * self.layers['Affine' + str(idx)].W
             grads['b' + str(idx)] = self.layers['Affine' + str(idx)].db
 
         return grads

@@ -28,25 +28,21 @@ beta 파라미터: 정규화된 미니 배치를 이동시킨다 (bias)
 """
 from ch06.ex02_sgd import Sgd
 from common.multi_layer_net_extend import MultiLayerNetExtend
+from common.optimizer import Momentum
 from dataset.mnist import load_mnist
 import numpy as np
+import matplotlib.pyplot as plt
 
 #p.213의 그림 그려보기
 # Batch Normalization을 사용하는 신경망과 사용하지 않는 신경망의 학습 속도 비교
 
-# MNIST 데이터를 불러온다
-(X_train, Y_train), (X_test, Y_test) = load_mnist(normalize= True)
-
-learning_rate = 0.01
-iteration = 20
-batch_size = 128
-train_size = X_train.shape[0]
+np.random.seed(110)
 
 # 배치 정규화를 사용하는 신경망
 bn_neural_net = MultiLayerNetExtend(input_size= 784,
                                     hidden_size_list= [100, 100, 100, 100, 100], #뉴런 100개짜리 계층 5개 생성
                                     output_size= 10,
-                                    weight_decay_lambda= 0.01, # [W1, W2, W3, W4, W5]과 ~~~~ 했을 때, std = 0.01
+                                    weight_init_std= 0.3, # [W1, W2, W3, W4, W5]과 ~~~~ 했을 때, std = 0.01
                                     use_batchnorm= True)
 
 
@@ -54,51 +50,105 @@ bn_neural_net = MultiLayerNetExtend(input_size= 784,
 neural_net = MultiLayerNetExtend(input_size= 784,
                                     hidden_size_list= [100, 100, 100, 100, 100], #뉴런 100개짜리 계층 5개 생성
                                     output_size= 10,
-                                    weight_decay_lambda= 0.01, # [W1, W2, W3, W4, W5]과 ~~~~ 했을 때, std = 0.01
+                                    weight_init_std= 0.3, # [W1, W2, W3, W4, W5]과 ~~~~ 했을 때, std = 0.01
                                     use_batchnorm= False)
 
+# MNIST 데이터를 불러온다
+(X_train, Y_train), (X_test, Y_test) = load_mnist(one_hot_label= True)
+
+# 학습시간을 줄이기 위해서 학습 데이터의 개수를 줄임
+X_train = X_train[:1000] # 데이터 1000개만 사용
+Y_train = Y_train[:1000]
+
+train_size = X_train.shape[0] # row의 갯수
+learning_rate = 0.01
+batch_size = 128
+iterations = 20
+
+# max_epoch = 20
+neural_accuracy = [] # 배치 정규화를 사용하지 않는 신경망의 정확도를 기록하기 위한 변수
+bn_neural_accuracy = [] # 배치 정규화를 사용한 신경망의 정확도를 기록하기 위한 변수
+
 # select an optimizer (최적화 모델)
-optimizer = Sgd(learning_rate)
+# 신경망이 한개 이상이라면 각 신경망에 맞는 모델을 사용해줘야하기 때문에 한개 이상의 모델을 사용해야한다
+# 신경망마다 모양이 달라지기 때문에
+# optimizer = Sgd(learning_rate)
+# SGD가 아닌 경우에는 update에서 params를 W,b이 외에 더 선언해서 문제가 날 수 있다
+# 파라미터 최적화 알고리즘이 SGD가 아닌 경우에는 신경망 개수만큼 optimizer 생성
+optimizer = Momentum(learning_rate)
+bn_optimizer = Momentum(learning_rate)
 
-max_epoch = 20
-neural_accuracy = []
-bn_neural_accuracy = []
+# epoch = 0
 
-epoch = 0
 
-for i in range(iteration):
-    batch_mask = np.random.choice(train_size, batch_size)
+for i in range(iterations):
+    # 미니 배치를 랜덤하게 선택 (0~999 숫자들 중 128개를 랜덤하게 선택)
+    mask = np.random.choice(train_size, batch_size)
+    x_batch = X_train[mask]
+    y_batch = Y_train[mask]
 
-    X_batch = X_train[batch_mask]
-    Y_batch = Y_train[batch_mask]
 
-    # 두 신경망을 모두 학습 => y = 정확도 (accuracy)
-    for _network in (bn_neural_net, neural_net):
-        gradients = _network.gradient(X_batch, Y_batch)
-        optimizer.update(_network.params, gradients)
-
-    bn_accuracy = bn_neural_net.accuracy(X_batch, Y_batch)
-    accuracy = neural_net.accuracy(X_batch, Y_batch)
-
-    bn_neural_accuracy.append(bn_accuracy)
+    # 배치 정규화
+    # 배치 정규화를 사용하지 않는 신경망에서 gradient 계산
+    gradients = neural_net.gradient(x_batch, y_batch)
+    # 파라미터 업데이트 -> W와 b 변경
+    optimizer.update(neural_net.params, gradients)
+    # 업데이트된 배치 데이터의 정확도를 계산
+    accuracy = neural_net.accuracy(x_batch, y_batch)
+    # 정확도를 기록
     neural_accuracy.append(accuracy)
 
-    epoch += 1
-    if epoch >= max_epoch:
-        break
+    # 배치 정규화를 사용하는 신경망에서 gradient 계산
+    bn_gradients = bn_neural_net.gradient(x_batch, y_batch)
+    # 파라미터 업데이트 -> W와 b 변경
+    bn_optimizer.update(bn_neural_net.params, bn_gradients)
+    # 업데이트된 배치 데이터의 정확도를 계산
+    bn_accuracy = bn_neural_net.accuracy(x_batch, y_batch)
+    # 정확도를 기록
+    bn_neural_accuracy.append(bn_accuracy)
+
+    print(f'iteration #{i}: without = {neural_accuracy[i]}, with = {bn_neural_accuracy[i]}')
+    # 왜 이렇게 출력되는거지?
+    # 1. 쌤것과 나의 것의 값이 다르다
+    # 2. 쌤껀 리스트를 그냥 줘도 나오는데, 내꺼는 [i]를 줘야지 그 순서의 것으로 나온다
+
+    # 책
+    # 두 신경망을 모두 학습 => y = 정확도 (accuracy)
+    # for _network in (bn_neural_net, neural_net):
+    #     gradients = _network.gradient(X_batch, Y_batch)
+    #     optimizer.update(_network.params, gradients)
+    #
+    # accuracy 계산
+    # bn_accuracy = bn_neural_net.accuracy(X_batch, Y_batch)
+    # accuracy = neural_net.accuracy(X_batch, Y_batch)
+
+    # bn_neural_accuracy.append(bn_accuracy)
+    # neural_accuracy.append(accuracy)
+
+    # epoch += 1
+    # if epoch >= max_epoch:
+    #     break
 
 
 
 # mini_batch = 20 학습 시키면서, 두 신경망에서 정확도 (accuracy)를 기록
 
 # 그래프를 그린다
+x= np.arange(iterations)
+plt.plot(x, neural_accuracy, label = 'without BN')
+plt.plot(x, bn_neural_accuracy, label = 'Using BN')
+plt.legend()
+plt.show()
 
 
+# 좀 더디게 올라가는 그래프: 초기값에 영향을 많이 받는다
+# 가파르게 올라가는 그래프: 초기값에 상관없이 자신의 일을 잘 해냄 ㅎㅎ
 
 
+# momentum: v의 방향의 속도 (파라미터 갯수만큼 그 파라미터에 대한 속도, 방향 -> 즉, 각 파라미터에대한 모멘텀이 있어야한다)
 
-
-
-
+# 모델 테스트해보기
+# mini-batch iteration 횟수 변경하면서 실험
+# weight_init_std = 0.01, 0.1, 0.3, 1.0으로 바꿔가면서 실험을 해보면 배치 정규화를 사용할 때와 사용하지 않을 때를 비교할 수 있다
 
 
