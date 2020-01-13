@@ -21,17 +21,18 @@
   <component name="ProjectId" id="1VMhs4XY5pGf5V13zHc5liHX1Hu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ch06" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ch07" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\lab-dl3\ch07" />
+      <recent name="C:\dev\lab-dl3\ch06" />
+      <recent name="C:\dev\lab-dl3" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\dev\lab-dl3\ch03" />
       <recent name="C:\dev\lab-dl3\dataset" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\dev\lab-dl3\ch06" />
-      <recent name="C:\dev\lab-dl3" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -46,8 +47,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hyperparameter_optimization">
-    <configuration name="ex11_batch_normalization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ex04_conv_pad">
+    <configuration name="ex01_convolution1d" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -55,11 +56,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch06" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch06/ex11_batch_normalization.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex01_convolution1d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -68,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex12_weight_decay" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex02_convolution_2d" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,11 +77,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch06" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch06/ex12_weight_decay.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex02_convolution_2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,7 +90,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex13_dropout" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex03_padding" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,11 +98,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch06" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch06/ex13_dropout.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex03_padding.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="hyperparameter_optimization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex04_conv_pad" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -118,11 +119,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch06" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch06/hyperparameter_optimization.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex04_conv_pad.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="trainer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex05_image" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,11 +140,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/trainer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex05_image.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hyperparameter_optimization" />
-        <item itemvalue="Python.trainer" />
-        <item itemvalue="Python.ex13_dropout" />
-        <item itemvalue="Python.ex12_weight_decay" />
-        <item itemvalue="Python.ex11_batch_normalization" />
+        <item itemvalue="Python.ex04_conv_pad" />
+        <item itemvalue="Python.ex05_image" />
+        <item itemvalue="Python.ex03_padding" />
+        <item itemvalue="Python.ex02_convolution_2d" />
+        <item itemvalue="Python.ex01_convolution1d" />
       </list>
     </recent_temporary>
   </component>
