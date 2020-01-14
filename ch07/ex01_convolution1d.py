@@ -42,7 +42,8 @@ def cross_correlation_1d(x, w):
     return np.array(cross_corr)
 
 
-
+# x크기가 ,,, convoluion의 크기가 커진다구?!
+# 원본의 크기가 결과값으로 나올 수 있도록
 
 
 

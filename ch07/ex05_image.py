@@ -56,6 +56,27 @@ plt.imshow(transformed)
 plt.show()
 # 초록? 노랑빛이 많이 맴돌게 출력된다
 
+# full padding: 보호구가 된다 (단점: 크기가 너무 커진다)
+
+# pool & same: 차가 있어야 가능
+# smae은 원본과 같은 크기가 출력되고, 영
+# full은 커진다, deli는 작아진다,,,
+
+# 왜 컨벌류션을 해야할까? image 블루로 다시 시작!
+# 이미지가 갖는 특징들을 읽너낼 수 있게함
+
+filter = np.zeros((8,8,3))
+filter[0,0,:] = 255
+transformed = correlate(img_pixel, filter, mode = 'same')
+plt.imshow(transformed.astype(np.uint8))
+plt.show()
+
+# 이미지 한장은 (height, width, color) 이렇게 세가지를 갖고, color 에서 여러가지 레이어를 갖는 (RGB 각 1개의 레이어)
+# height = nrow, width = ncol
+
+
+
+
 
 
 
