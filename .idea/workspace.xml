@@ -25,14 +25,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\lab-dl3\ch03" />
+      <recent name="C:\dev\lab-dl3\dataset" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\lab-dl3\ch07" />
       <recent name="C:\dev\lab-dl3\ch06" />
       <recent name="C:\dev\lab-dl3" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\dev\lab-dl3\ch03" />
-      <recent name="C:\dev\lab-dl3\dataset" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -47,8 +47,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ex08_pooling">
-    <configuration name="ex04_conv_pad" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ex01">
+    <configuration name="ex01" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -56,11 +56,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch07" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ch08" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex04_conv_pad.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch08/ex01.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -69,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex05_image" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex11_pooling_layer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,7 +81,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex05_image.py" />
+      <option name="SCRIPT_NAME" value="C:\dev\lab-dl3\ch07\ex11_max_pooling.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,7 +90,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex06_image_index" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex12_pooling" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,7 +102,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex06_image_index.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex12_pooling.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex07_convolution_3d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex14_cnn_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex07_convolution_3d.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex14_cnn_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ex08_pooling" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex15_cnn_params" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab-dl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,7 +144,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex08_pooling.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ch07/ex15_cnn_params.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ex08_pooling" />
-        <item itemvalue="Python.ex07_convolution_3d" />
-        <item itemvalue="Python.ex06_image_index" />
-        <item itemvalue="Python.ex05_image" />
-        <item itemvalue="Python.ex04_conv_pad" />
+        <item itemvalue="Python.ex01" />
+        <item itemvalue="Python.ex15_cnn_params" />
+        <item itemvalue="Python.ex14_cnn_test" />
+        <item itemvalue="Python.ex12_pooling" />
+        <item itemvalue="Python.ex11_pooling_layer" />
       </list>
     </recent_temporary>
   </component>

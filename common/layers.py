@@ -3,6 +3,7 @@ import numpy as np
 from common.functions import *
 from common.util import im2col, col2im
 
+# neural network 에서 사용할 각각의 계층을 모아둔
 
 class Relu:
     def __init__(self):
@@ -258,13 +259,20 @@ class Convolution:
     def backward(self, dout):
         FN, C, FH, FW = self.W.shape
         dout = dout.transpose(0,2,3,1).reshape(-1, FN)
+        # 선 transpose -> 후 reshape # forward와 반대로 function
+        # transpose에서 축의 인덱스도 forward (0, 3, 1, 2)와 반대로 해준다  -> (0,2,3,1)
+        # out에서 같은 모양으로 나온다
 
-        self.db = np.sum(dout, axis=0)
-        self.dW = np.dot(self.col.T, dout)
+        self.db = np.sum(dout, axis=0) # 독립변수인 b, 그냥 숫자 한개로써(?) 더해주면 된다
+        self.dW = np.dot(self.col.T, dout) #2차원 dot 연산
+        # col: 4차원 데이터를 2차원으로 펼쳐준 것
         self.dW = self.dW.transpose(1, 0).reshape(FN, C, FH, FW)
+                    # 2차원을 다시 4차원으로 # x -> (convolution layer) -> Y
+                    # X(input) and Y(output) must have the same dimensions
 
         dcol = np.dot(dout, self.col_W.T)
         dx = col2im(dcol, self.x.shape, FH, FW, self.stride, self.pad)
+        # col2im: 2d image to 4d
 
         return dx
 
@@ -301,10 +309,12 @@ class Pooling:
         
         pool_size = self.pool_h * self.pool_w
         dmax = np.zeros((dout.size, pool_size))
+        # poolsize = window의 크기?
+        # 큰 것이 작아져서 나갔기 때문에, 작은것이 큰것으로 들어 올 때 -> 빈 공간들을 0으로 채워준다
         dmax[np.arange(self.arg_max.size), self.arg_max.flatten()] = dout.flatten()
         dmax = dmax.reshape(dout.shape + (pool_size,)) 
         
         dcol = dmax.reshape(dmax.shape[0] * dmax.shape[1] * dmax.shape[2], -1)
         dx = col2im(dcol, self.x.shape, self.pool_h, self.pool_w, self.stride, self.pad)
         
-        return dx
+        return dx # 들어온 값 그대로 아니면 0으로 리턴하겠다
